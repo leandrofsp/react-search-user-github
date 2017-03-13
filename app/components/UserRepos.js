@@ -1,15 +1,16 @@
-var React = require('react');
+import React from 'react';
 
-var UserRepos = React.createClass({
-  getInitialState: function() {
-    return {
+class UserRepos extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
       reposCount: 0,
     }
-  },
-  componentWillReceiveProps: function(props) {
+  }
+  componentWillReceiveProps(props) {
     this.setState({reposCount: props.repos.length});
-  },
-  render: function() {
+  }
+  render() {
     var repos = this.props.repos.map(function(repo, key) {
       return (
         <div key={key} className="thumbnail">
@@ -34,6 +35,6 @@ var UserRepos = React.createClass({
       </div>
     );
   }
-});
+}
 
-module.exports = UserRepos;
+export default UserRepos;
